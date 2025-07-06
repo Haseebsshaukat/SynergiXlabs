@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 'use client';
 
 import { motion } from 'framer-motion';
@@ -34,7 +35,7 @@ export default function ContactForm() {
         setSubmitStatus('error');
       }
     } catch (error) {
-      setSubmitStatus('error');
+      setSubmitStatus(error instanceof Error ? 'error' : 'error');
     } finally {
       setIsSubmitting(false);
     }
@@ -156,7 +157,7 @@ export default function ContactForm() {
             )}
           </button>
 
-          {submitStatus === 'success' && (
+          {submitStatus ==='success' && (
             <p className="ml-4 text-green-400 text-sm">
               Message sent successfully! We'll get back to you soon.
             </p>
